@@ -12,6 +12,7 @@
 		0ADA39DB1D7094A60038C661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA39D91D7094A60038C661 /* Main.storyboard */; };
 		0ADA39DD1D7094A60038C661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA39DC1D7094A60038C661 /* Assets.xcassets */; };
 		0ADA39E01D7094A60038C661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA39DE1D7094A60038C661 /* LaunchScreen.storyboard */; };
+		0ADA39E91D70AB540038C661 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA39E81D70AB540038C661 /* pokemon.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		0ADA39DC1D7094A60038C661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ADA39DF1D7094A60038C661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0ADA39E11D7094A60038C661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ADA39E81D70AB540038C661 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pokemon.csv; path = "../../../Downloads/pokeapi-master/data/v1/pokemon.csv"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		0ADA39D41D7094A60038C661 /* pokedex-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				0ADA39E71D70AB130038C661 /* CSVFile */,
 				0ADA39D51D7094A60038C661 /* AppDelegate.swift */,
 				0ADA39D71D7094A60038C661 /* ViewController.swift */,
 				0ADA39D91D7094A60038C661 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				0ADA39E11D7094A60038C661 /* Info.plist */,
 			);
 			path = "pokedex-iOS";
+			sourceTree = "<group>";
+		};
+		0ADA39E71D70AB130038C661 /* CSVFile */ = {
+			isa = PBXGroup;
+			children = (
+				0ADA39E81D70AB540038C661 /* pokemon.csv */,
+			);
+			name = CSVFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +135,7 @@
 			files = (
 				0ADA39E01D7094A60038C661 /* LaunchScreen.storyboard in Resources */,
 				0ADA39DD1D7094A60038C661 /* Assets.xcassets in Resources */,
+				0ADA39E91D70AB540038C661 /* pokemon.csv in Resources */,
 				0ADA39DB1D7094A60038C661 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
