@@ -9,17 +9,17 @@
 import Foundation
 
 class Pokemon{
-    private var _pokemon:String!
+    private var _name:String!
     private var _pokedexId:Int!
     
-    var Pokemon:String{
-        return _pokemon;
+    var Name:String{
+        return _name;
     }
     var PokedexId:Int{
         return _pokedexId;
     }
     init(pokemon:String,pokedexId:Int){
-        _pokemon=pokemon
+        _name=pokemon
         _pokedexId=pokedexId
     }
     
