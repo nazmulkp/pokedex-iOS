@@ -2,7 +2,7 @@
 //  PokeCell.swift
 //  pokedex-iOS
 //
-//  Created by Azmal Hossain on 8/27/16.
+//  Created by  Nazmul Hasan on 8/27/16.
 //  Copyright © 2016 AZNAZ.com. All rights reserved.
 //
 
