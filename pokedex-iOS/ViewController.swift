@@ -18,8 +18,22 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         
         colletion.delegate=self;
         colletion.dataSource=self;
+        parsePokemonCSV();
     }
-
+     func parsePokemonCSV(){
+        let path=NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv");
+        
+        do{
+            let contentCSV = try CSV(contentsOfURL: path!);
+            var row = contentCSV.rows;
+            
+            print(row);
+            
+        
+        }catch let err as NSError{
+            print(err.debugDescription)
+        }
+      }
    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell=collectionView.dequeueReusableCellWithReuseIdentifier("PokeCell",
