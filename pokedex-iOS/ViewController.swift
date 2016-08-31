@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var colletion:UICollectionView!
+    var pokemonlist=[Pokemon]();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,16 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         
         do{
             let contentCSV = try CSV(contentsOfURL: path!);
-            var row = contentCSV.rows;
-            
-            print(row);
+            let rows = contentCSV.rows;
+            for row in rows{
+               //print(row)
+                let id=Int(row["id"]!)
+                let identifier=row["identifier"]!
+                let pokemon=Pokemon(pokemon: identifier, pokedexId: id!)
+                pokemonlist.append(pokemon)
+//                print(identifier);
+            }
+            //print(rows);
             
         
         }catch let err as NSError{
@@ -38,8 +46,10 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell=collectionView.dequeueReusableCellWithReuseIdentifier("PokeCell",
                forIndexPath: indexPath) as? PokeCell{
-            let pokeman=Pokemon(pokemon: "Text", pokedexId: indexPath.row);
-            cell.configration(pokeman);
+            
+           let pokemon=pokemonlist[indexPath.row]
+            
+            cell.configration(pokemon);
             
             return cell;
         }
@@ -51,7 +61,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 778;
+        return 278;
     }
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1;
