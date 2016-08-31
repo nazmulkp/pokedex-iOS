@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var colletion:UICollectionView!
+    
     var pokemonlist=[Pokemon]();
+    var mushicPlayer:AVAudioPlayer!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +24,9 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         colletion.delegate=self;
         colletion.dataSource=self;
         parsePokemonCSV();
+        initSound();
     }
+    
      func parsePokemonCSV(){
         let path=NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv");
         
@@ -42,6 +48,35 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             print(err.debugDescription)
         }
       }
+    func initSound(){
+        
+        let path=NSBundle.mainBundle().pathForResource("music", ofType: "mp3")!
+        
+        do{
+           mushicPlayer=try AVAudioPlayer(contentsOfURL: NSURL(string: path)!)
+            mushicPlayer.prepareToPlay()
+            mushicPlayer.numberOfLoops = -1
+            mushicPlayer.play()
+        }
+        catch let err as NSError{
+            print(err.debugDescription);
+        }
+        
+        
+    }
+    
+    @IBAction func musicBtn(sender: UIButton!) {
+        
+        if(mushicPlayer.playing){
+            mushicPlayer.stop();
+            sender.alpha=0.6
+        }
+        else{
+            mushicPlayer.play();
+            sender.alpha=1.0
+        }
+        
+    }
    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell=collectionView.dequeueReusableCellWithReuseIdentifier("PokeCell",
