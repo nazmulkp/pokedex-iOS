@@ -9,12 +9,16 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate{
     
     @IBOutlet weak var colletion:UICollectionView!
     
+    @IBOutlet weak var searchBox: UISearchBar!
+    
     var pokemonlist=[Pokemon]();
     var mushicPlayer:AVAudioPlayer!
+    var filterPokemons=[Pokemon]();
+    var inSearchMode=false
 
     
     override func viewDidLoad() {
@@ -23,6 +27,8 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         
         colletion.delegate=self;
         colletion.dataSource=self;
+        searchBox.delegate=self;
+        
         parsePokemonCSV();
         initSound();
     }
@@ -82,7 +88,17 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         if let cell=collectionView.dequeueReusableCellWithReuseIdentifier("PokeCell",
                forIndexPath: indexPath) as? PokeCell{
             
-           let pokemon=pokemonlist[indexPath.row]
+            let pokemon:Pokemon!
+            if inSearchMode{
+               
+               pokemon=filterPokemons[indexPath.row]
+                
+            }
+            else{
+                
+                pokemon=pokemonlist[indexPath.row]
+            }
+          
             
             cell.configration(pokemon);
             
@@ -96,6 +112,11 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if inSearchMode{
+            return pokemonlist.count;
+        }
+        
         return 278;
     }
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -103,6 +124,27 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(105, 105)
+    }
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        if(searchBox.text == nil || searchBox.text == ""){
+            inSearchMode=false;
+            view.endEditing(true)
+            colletion.reloadData();
+        }
+        else{
+            inSearchMode=true
+            let searchByLower=searchBox.text!.lowercaseString
+            
+            filterPokemons=pokemonlist.filter({ $0.Name.rangeOfString(searchByLower) != nil})
+         
+            
+            colletion.reloadData();
+        }
     }
 }
 

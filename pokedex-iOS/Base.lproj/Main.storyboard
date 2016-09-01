@@ -26,13 +26,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Cbc-34-MdW">
                                 <rect key="frame" x="0.0" y="90" width="600" height="510"/>
                             </imageView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="2Yz-yC-Spb">
-                                <rect key="frame" x="0.0" y="46" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="3jv-Os-ZaC"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KPz-vR-tHD">
                                 <rect key="frame" x="20" y="110" width="560" height="470"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -119,6 +112,13 @@
                                     <constraint firstItem="BCy-7I-j8R" firstAttribute="centerX" secondItem="393-N2-q1B" secondAttribute="centerX" id="z74-T5-Kl0"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="2Yz-yC-Spb">
+                                <rect key="frame" x="0.0" y="46" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3jv-Os-ZaC"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -140,6 +140,7 @@
                     </view>
                     <connections>
                         <outlet property="colletion" destination="KPz-vR-tHD" id="SK5-VZ-txV"/>
+                        <outlet property="searchBox" destination="2Yz-yC-Spb" id="ip4-GK-Sw3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
