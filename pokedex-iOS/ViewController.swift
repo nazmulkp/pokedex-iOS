@@ -119,7 +119,11 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
               poke=pokemonlist[indexPath.row]
         }
         
-        shouldPerformSegueWithIdentifier("PokemonDetailVC", sender: poke);
+        
+        
+        performSegueWithIdentifier("PokemonDetailVC", sender: poke)
+        
+//        shouldPerformSegueWithIdentifier("PokemonDetailVC", sender: poke);
         
     }
     
