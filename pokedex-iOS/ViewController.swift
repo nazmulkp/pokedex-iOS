@@ -109,15 +109,38 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         }
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let poke:Pokemon!
+        
+        if inSearchMode{
+            poke=filterPokemons[indexPath.row]
+          
+        }
+        else{
+              poke=pokemonlist[indexPath.row]
+        }
+        
+        shouldPerformSegueWithIdentifier("PokemonDetailVC", sender: poke);
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PokemonDetailVC"{
+            if let detailVC = segue.destinationViewController as? PokemonDetailVC{
+                if let poke = sender as? Pokemon{
+                    detailVC.pokemon=poke;
+                }
+            }
+        }
+    }
+    
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if inSearchMode{
             return pokemonlist.count;
         }
         
-        return 278;
+        return 30;
     }
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1;
