@@ -9,18 +9,34 @@
 import Foundation
 
 class Pokemon{
-    private var _name:String!
-    private var _pokedexId:Int!
+    private var _pokeName:String!
+
+    private var _pokeDetial: String!
+    
+    private var _pokeType: String!
+    
+    private var _pokeHeight: String!
+    
+    private var _pokeWeight: String!
+    
+    private var _pokeDefence: String!
+    
+    private var _pokeDexId: Int!
+    
+    private var _pokeBaseAttack: String!
+    
+    private var _pokeNextEvolution: String!
+  
     
     var Name:String{
-        return _name;
+        return _pokeName;
     }
     var PokedexId:Int{
-        return _pokedexId;
+        return _pokeDexId;
     }
-    init(pokemon:String,pokedexId:Int){
-        _name=pokemon
-        _pokedexId=pokedexId
+    init(pokeName:String,pokedexId:Int){
+        _pokeName=pokeName
+        _pokeDexId=pokedexId
     }
     
 }
