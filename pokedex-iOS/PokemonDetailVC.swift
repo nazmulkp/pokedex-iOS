@@ -15,7 +15,7 @@ class PokemonDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayName.text = pokemon.Name
+        //displayName.text = pokemon.Name
     }
     
 }
