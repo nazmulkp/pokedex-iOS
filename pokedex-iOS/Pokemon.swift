@@ -28,7 +28,7 @@ class Pokemon{
     private var _pokeNextEvolution: String!
   
     
-    var Name:String{
+    var PokeName:String{
         return _pokeName;
     }
     var PokedexId:Int{

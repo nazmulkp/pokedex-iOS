@@ -43,7 +43,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                //print(row)
                 let id=Int(row["id"]!)
                 let identifier=row["identifier"]!
-                let pokemon=Pokemon(pokemon: identifier, pokedexId: id!)
+                let pokemon=Pokemon(pokeName: identifier, pokedexId: id!)
                 pokemonlist.append(pokemon)
 //                print(identifier);
             }
@@ -167,7 +167,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             inSearchMode=true
             let searchByLower=searchBox.text!.lowercaseString
             
-            filterPokemons=pokemonlist.filter({ $0.Name.rangeOfString(searchByLower) != nil})
+            filterPokemons=pokemonlist.filter({ $0.PokeName.rangeOfString(searchByLower) != nil})
          
             
             colletion.reloadData();

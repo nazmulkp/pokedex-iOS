@@ -10,6 +10,9 @@ import UIKit
 
 class PokemonDetailVC: UIViewController {
     
+    var pokemon:Pokemon!;
+    
+    @IBOutlet weak var pokeName: UILabel!
     
     @IBOutlet weak var pokeDetailImg: UIImageView!
     @IBOutlet weak var pokeDetial: UILabel!
@@ -34,7 +37,9 @@ class PokemonDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //displayName.text = pokemon.Name
+      pokeName.text=pokemon.PokeName
     }
     
     @IBAction func pokeBackToMain(sender: AnyObject) {
