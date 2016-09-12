@@ -26,6 +26,8 @@ class Pokemon{
     private var _pokeBaseAttack: String!
     
     private var _pokeNextEvolution: String!
+    
+    private var _pokemonUrl:String!
   
     
     var PokeName:String{
@@ -37,6 +39,8 @@ class Pokemon{
     init(pokeName:String,pokedexId:Int){
         _pokeName=pokeName
         _pokeDexId=pokedexId
+        _pokemonUrl="\(URL_BASE)\(URL_POKEMON)\(self.PokedexId)/"
+        
     }
     
 }
